@@ -9,7 +9,7 @@ public class MyApp {
     private static final Logger LOG = LogManager.getLogger(MyApp.class);
 
     public static void main (String[] args){
-       LOG.info("Programm Started");
+       LOG.info("Program Started");
         int A = 6;
         int B = 4;
         int rezult = Math.Summ(A, B);
