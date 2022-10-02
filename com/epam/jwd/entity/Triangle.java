@@ -39,19 +39,25 @@ public class Triangle {
         }
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Triangle triangle = (Triangle) o;
-        return Objects.equals(this.dot1, ((Triangle) o).dot1) &&
-                Objects.equals(this.dot2, ((Triangle) o).dot2) &&
-                Objects.equals(this.dot3, ((Triangle) o).dot3);
+
+        if (!dot1.equals(triangle.dot1)) return false;
+        if (!dot1.equals(triangle.dot2)) return false;
+        return dot1.equals(triangle.dot3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dot1, dot2, dot3);
+        int result = dot1 != null ? dot1.hashCode() : 0;
+        result = 31 * result + (dot2 != null ? dot2.hashCode() : 0);
+        result = 31 * result + (dot3 != null ? dot3.hashCode() : 0);
+        return result;
     }
 
     @Override

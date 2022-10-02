@@ -19,16 +19,25 @@ public class Dot {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        return this.XAxis == ((Dot) o).XAxis &&
-                this.YAxis == ((Dot) o).YAxis;
+
+        Dot dot = (Dot) o;
+
+        if (Double.compare(dot.XAxis, XAxis) != 0) return false;
+        return Double.compare(dot.YAxis, YAxis) == 0;
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hash(XAxis, YAxis);
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(XAxis);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(YAxis);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override
