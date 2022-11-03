@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class IncomeValidator {
 
-    private final static String REGEXP = "";
+    private final static String REGEXP = "/[0-9]+\\.[0-9]+( )[0-9]+\\.[0-9]+( )[0-9]+\\.[0-9]+/";
     private final static Logger LOG = LogManager.getLogger(IncomeValidator.class);
 
     public static boolean checkWriting(String incomeString){
